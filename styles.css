@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    overflow: hidden;
+}
+
+.right-section-hd {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-section {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000000;
+    padding: 5px 10px;
+}
+
+.scrollable-content {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+h1, h2, p {
+    color: #000000;
+}
+
+.logo {
+    width: 300px;
+    height: 450px;
+    border-radius: 5%;
+}
+
+.small-logo {
+    width: 35px;
+    height: 35px;
+}
+
+.food-img1 {
+    float: right;
+    margin-left: 20px;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 3%;
+}
+
+.food-img2 {
+    float: left;
+    margin-right: 20px;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 3%;
+}
+
+.buttons-section {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.sign-up-btn,
+.learn-more-btn {
+    padding: 15px 25px;
+    font-size: 16px;
+    background-color: #176987;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sign-up-btn:hover,
+.learn-more-btn:hover {
+    background-color: #58efec;
+}
+
+.prep-link, 
+.prep-link:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+.visible {
+    animation: slideInImage 1s forwards;
+}
+
+@keyframes slideInImage {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container, 
+.left-section, 
+.right-section {
+    animation: slideIn 1s ease-out;
+}
+
+body.loaded .right-section .navbar {
+    opacity: 1;
+}
+
+body.loaded .right-section.scrolled-down .navbar {
+    top: -60px;
+}
